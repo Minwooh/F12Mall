@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   try {
     //user정보 담기
     const user = await getMyProfile();
+    console.log(user);
     renderUserProfile(user);
 
     mypageUserId = user.user_id;
@@ -43,7 +44,7 @@ function renderUserProfile(user) {
   document.querySelector('#money').textContent =
     user.money.toLocaleString('ko-KR');
   document.querySelector('#position').textContent = user.position;
-  document.querySelector('#bio').innerHTML = (user.bio || '').replace(/\n/g, '<br>');
+  document.querySelector('#bio').textContent = user.bio;
 
   //stack element 넣어주기
   const stackContainer = document.querySelector('#stack-container');
@@ -118,14 +119,9 @@ function renderCoinList(coins) {
           coinData.valuation_rate;
         const valuationRateElem = coin.querySelector('#valuation-rate');
 
-        // 기존 % span이 있으면 재사용, 없으면 새로 생성
-        let percent = resultContainer.querySelector('span.percent-sign');
-        if (!percent) {
-          percent = document.createElement('span');
-          percent.className = 'percent-sign';
-          resultContainer.appendChild(percent);
-        }
+        const percent = document.createElement('span');
         percent.textContent = '%';
+        resultContainer.appendChild(percent);
 
         if (valuationRateElem) {
           if (coinData.valuation_rate > 0) {

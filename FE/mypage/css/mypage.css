@@ -2,43 +2,49 @@
 .border {
   border: 1px solid #00ff2f;
 }
-.section-right-title {
+.section-title {
   width: 10rem;
   padding: 0.25rem 0;
   text-align: center;
-  font-size: 0.8rem;
+  height: 0.6rem;
+  font-size: 0.6rem;
   color: #00ff2f;
   background: rgba(30, 30, 30, 0.656);
+  border: 1px solid #00ff2f;
 }
 
 /* body */
 html {
   font-size: 16px;
   box-sizing: border-box;
+  height: 100%;
 }
 body {
   background: black;
   overflow: hidden;
   margin: 0;
+  height: 100%;
 }
 canvas {
   position: absolute;
   top: 0;
   width: 100vw;
   height: 100vh;
+  z-index: -999;
 }
 #wrapper {
   width: 100vw;
   height: 100vh;
-  display: flex;
-  justify-content: center;
 }
 .width {
-  width: 90%;
-  display: grid;
-  grid-template-columns: 3fr 6.8fr;
-  padding: 4rem 0;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 3rem;
   font-family: 'KIMM_B';
   font-size: 0.78rem;
 }
@@ -46,51 +52,56 @@ canvas {
 /* section : left  */
 .section-left {
   display: grid;
-  grid-template-rows: 3fr 1fr;
-  gap: 1rem;
-  position: relative;
+  grid-template-rows: 5fr 2fr;
+  width: 25%;
+  height: 100%;
+  padding: 1.4rem;
+  box-sizing: border-box;
   background-color: #98989859;
-  margin-right: 0.8rem;
-  padding: 1rem 1rem;
 }
+
 /* 프로필 영역 */
 .container-profile {
-  position: relative;
+  display: grid;
+  grid-template-rows: 3.5fr 0.4fr;
+  /* flex-direction: column; */
+  gap: 1rem;
   width: 100%;
-  height: 100%;
-  margin: 0 auto;
+  height: 95%;
+  padding: 1rem;
+  box-sizing: border-box;
   background-color: #00000088;
 }
 .container-profile .box-contents {
-  height: 90%;
-  width: 90%;
-  margin: 1rem auto;
+  display: grid;
+  grid-template-rows: 3fr 0.5fr 0.5fr 0.5fr 0.2fr;
+  gap: 0.2rem;
+  width: 100%;
+  /* height: 100%; */
+  box-sizing: border-box;
+  padding: 0.6rem;
   color: #fff;
 }
-.container-profile .box-contents #image {
-  background-image: url('../../assets/images/main/Masha.jpeg');
-  background-size: cover;
-  background-repeat: no-repeat;
-
-  margin: 0 auto;
+.box-contents .image-container {
+  overflow: hidden;
   width: 90%;
   aspect-ratio: 1 / 1;
+  margin: 0 auto;
   border-radius: 50%;
-  border: 0.6px solid#00ff00;
+  border: 0.6px solid #00ff00;
   box-shadow: 9px 9px 9px #00000051;
 }
-.container-profile .box-contents #name {
-  margin-top: 1rem;
-  font-size: 1.75rem;
+.image-container #image {
+  width: 100%;
+  object-fit: cover;
 }
+
 .container-profile .box-contents #username {
-  font-size: 1.375rem;
-  margin-top: 0.5rem;
   color: #ff9d00;
 }
 .container-profile .box-contents #position {
   font-size: 1rem;
-  margin-top: 0.7rem;
+
   -webkit-text-stroke: 0.5px #00ff00;
 }
 .container-profile .box-contents #email {
@@ -103,33 +114,30 @@ canvas {
   width: 100%;
   display: flex;
   gap: 1rem;
-  margin-top: 0.7rem;
 }
 .box-contents #stack-container .stack {
-  position: relative;
+  height: 0.8rem;
   display: inline-flex;
   align-items: center;
   justify-items: center;
-  padding: 0.4rem;
-  border: 1.5px solid #00ff00;
-  border-radius: 0.8rem;
-  text-align: center;
   font-size: 0.8rem;
   color: #00ff00;
+  padding: 0.4rem;
   background-color: #222222;
+  border: 1.5px solid #00ff00;
+  border-radius: 0.8rem;
   box-shadow: 0px 3px 3px #00ff2f55;
 }
+.box-contents #link-container {
+  display: flex;
+  gap: 1rem;
+}
 .box-contents #link-container .link {
-  width: 2rem;
-  margin-right: 1.8rem;
-  margin-top: 0.8rem;
+  width: 1.4rem;
 }
 .container-profile .detail-btn {
-  position: absolute;
-  right: 1rem;
-  bottom: 1rem;
-  width: 7rem;
   height: 1.5rem;
+  width: 4rem;
   text-align: center;
   line-height: 1.5rem;
   background-color: #66ff66;
@@ -138,19 +146,23 @@ canvas {
 
 /* 코인 비율 영역 */
 .container-ratio {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
   width: 100%;
   height: 100%;
+}
+.box-ratio {
+  display: flex;
+  gap: 1.2rem;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 1.3rem;
   background-color: #000000a1;
 }
-.container-ratio > div:first-child {
-  font-size: 0.8rem;
-  height: 1.55rem;
-  padding: 2px 5px;
-  text-align: left;
-  line-height: 1.55rem;
-  color: #00ff00;
-  border-bottom: 0.8px solid #00ff2f;
-}
+
 .box-ratio-bar {
   width: 90%;
   height: 1.6rem;
@@ -162,64 +174,81 @@ canvas {
 .box-coins {
   display: flex;
   flex-wrap: wrap;
-  width: 90%;
-  height: 5rem;
-  margin: 0 auto;
-  margin-top: 2.8rem;
+  width: 100%;
 }
 
 /* section : right  */
 .section-right {
-  position: relative;
-  padding: 1rem 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  grid-template-rows: 2fr 5fr;
-  color: #fff;
-  height: calc(100vh - 8rem);
+  display: grid;
+  grid-template-rows: 2fr 3fr;
+  gap: 0.8rem;
+  width: 75%;
+  height: 100%;
+  padding: 1.4rem;
+  box-sizing: border-box;
   background-color: #98989859;
 }
 
 /* coin information 영역 */
-.container-information > .box-inform-main {
+.container-information {
+  width: 100%;
+  height: 100%;
   display: grid;
-  grid-template-columns: 36% 64%;
-  justify-content: center;
-  padding: 1rem 1rem;
   box-sizing: border-box;
-  background-color: #00000088;
+  grid-template-rows: 1.2rem 1fr;
+  flex-direction: column;
+  gap: 0.6rem;
 }
-.box-inform-main .main-left {
-  /* height: 95%; */
-  padding: 0.35rem;
-  margin-right: 1.2rem;
-  font-size: 1rem;
-}
-.box-inform-main .main-left .left-top {
-  display: flex;
-  justify-content: space-between;
-  /* height: 1.3rem; */
-  padding: 4px;
-  color: #ff9d00;
-  text-align: center;
-  line-height: 20px;
-}
-.box-inform-main .main-left #bio {
-  width: 90%;
-  line-height: 1.2;
-  letter-spacing: 1.5px;
-  margin: 2px auto;
-}
-.box-inform-main .main-right {
-  /* height: 95%; */
-  padding: 0.35rem;
-}
-.box-inform-main .main-right > div:nth-child(2) {
+.container-list-coins {
+  width: 100%;
+  height: 100%;
+  max-height: 85%;
   display: grid;
-  grid-template-columns: 6fr 4fr;
-  margin: 0.8rem 0.8rem;
-  /* height: 83%; */
+  box-sizing: border-box;
+  grid-template-rows: 1.2rem 1fr;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.container-information > .box-inform {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0.8rem;
+  background-color: #00000088;
+  border: 1px solid #00ff22;
+}
+.box-inform .main-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 30%;
+  height: 100%;
+  padding: 0.6rem;
+  box-sizing: border-box;
+  border: 1px solid #00ff22;
+}
+.box-inform .main-left .left-top {
+  width: 100%;
+  height: 2rem;
+  color: #ff9d00;
+}
+.box-inform .main-left #bio {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+}
+.box-inform .main-right {
+  display: grid;
+  grid-template-rows: 1rem 1fr;
+  gap: 0.3rem;
+  width: 70%;
+  height: 100%;
+  padding: 0.6rem;
+  box-sizing: border-box;
+  border: 1px solid #00ff22;
 }
 .main-right .right-top {
   /* height: 1.2rem; */
@@ -238,79 +267,83 @@ span:nth-child(6) {
   margin-left: 0.25rem;
 }
 .main-right .total-money-container {
-  position: relative;
-  padding: 1rem;
-  max-height: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
   background-color: rgb(68, 68, 68, 0.7);
-  font-size: 1rem;
-  margin-right: 1rem;
+}
+.total-money-container .money-info-box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0.8rem;
+  box-sizing: border-box;
+}
+.line-box {
+  width: 100%;
+  height: 100%;
 }
 .main-right .line {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.7rem;
+  color: #fff;
 }
 .total-money-container #subtract-amount {
   position: relative;
-  width: 90%;
-  /* height: 3rem; */
+  width: 100%;
   background-color: black;
   border: 1px solid #00ff2f;
   text-align: center;
   line-height: 3rem;
-  margin: 0 auto;
-  margin-top: 10%;
   color: #ff1d1d;
   font-size: 1.2rem;
-  padding: 0 0.6rem;
 }
-.main-right .graph-container {
-  position: relative;
-  width: 100%;
-  min-height: 2rem;
+.total-money-container .graph-box {
+  z-index: 999;
+  flex: 1;
   height: 100%; /* 화면 크기에 따라 유동적으로 */
-  /* max-height: 10rem; */
 }
 #graph {
   width: 100%;
   height: 100%;
   min-height: 2rem;
-  /* max-height: 10rem; */
 }
 
-/* list of coins 영역 */
-.container-information,
-.container-list-coins {
-  height: 100%;
+.box-list {
   display: grid;
-  gap: 0.8rem;
-  grid-template-rows: 1.5rem 1fr;
-}
-.box-list-main {
-  /* height: 100%; */
+  grid-template-rows: 1.2rem 1fr;
+  padding: 0.8rem;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
   background-color: #00000088;
-  overflow-y: auto;
+  border: 1px solid #00ff22;
 }
-.box-list-main .total-info {
+.box-list .total-info {
   display: flex;
   justify-content: flex-end;
   font-size: 0.9rem;
-  padding: 0.8rem;
 }
 .total-info div:nth-child(2) {
   color: #ff9d00;
   margin-left: 10px;
 }
-.box-list-main .coin-list {
+.box-list .coin-list {
   display: grid;
+  /* background-color: aliceblue; */
+  color: #fff;
   grid-template-columns: repeat(3, 32%);
   gap: 1rem;
-  width: 97%;
-  /* height: 86%; */
-  margin: 0 auto;
-  overflow-y: auto;
-  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
   box-sizing: border-box;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE, Edge */
+  overflow: hidden;
+  overflow-y: auto;
+  padding: 1rem;
 }
 .box-list-main .coin-list::-webkit-scrollbar {
   display: none; /* Chrome, Safari */
@@ -404,12 +437,9 @@ span:nth-child(6) {
 }
 /* 추가추가추가 */
 .bar-container {
-  width: 90%;
-  height: 1.2rem;
-  margin: 2rem auto 0 auto;
+  height: 0.8rem;
   display: flex;
-  gap: 0.5rem;
-  align-items: flex-end;
+  gap: 0.2rem;
 }
 .bar {
   height: 100% !important;
@@ -449,12 +479,13 @@ span:nth-child(6) {
   display: flex;
   gap: 0.2rem;
   width: 50%;
+  margin-bottom: 0.4rem;
   color: #00ff2f;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
 }
 .coin-container .circle {
-  width: 0.8rem;
-  height: 0.8rem;
+  width: 0.4rem;
+  height: 0.4rem;
   border-radius: 50%;
 }
 .coin-container #username {
